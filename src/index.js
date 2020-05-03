@@ -28,7 +28,6 @@ class App extends Component {
                 </div>
             );
         }
-
         return (
             <div>
                 <h3>Loading...</h3>
