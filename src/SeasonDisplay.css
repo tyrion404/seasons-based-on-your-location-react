@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
+.icon-left {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.icon-right {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.season-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.winter {
+    background-color: aliceblue;
+}
+
+.summer {
+    background-color: #FEFEBE;
+}
+
+.season-display.winter i {
+    color: blue;
+}
+
+.season-display.summer i {
+    color: orange;
+}
+
+.info-bottom {
+    margin: auto 20px;
+    position: absolute;
+    top: 55%;
+}
+
+.winter.title {
+    font-family: 'Julius Sans One', sans-serif;
+    color: blue;
+}
+
+.summer.title {
+    font-family: 'Julius Sans One', sans-serif;
+    color: orange;
+}

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
+import SeasonDisplay from './SeasonDisplay';
+import Loader from './Loader';
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -8,13 +11,16 @@ class App extends Component {
             latitude: null,
             errMessage: ''
         };
+    }
+
+    componentDidMount() {
         window.navigator.geolocation.getCurrentPosition(
             (position) => this.setState({ latitude: position.coords.latitude }),
             (err) => this.setState({ errMessage: err.message })
         );
     }
 
-    render() {
+    renderContent() {
         if (this.state.errMessage && !this.state.latitude) {
             return (
                 <div>
@@ -24,13 +30,19 @@ class App extends Component {
         } else if (!this.state.errMessage && this.state.latitude) {
             return (
                 <div>
-                    <h3>{this.state.latitude}</h3>
+                    <SeasonDisplay latitude={this.state.latitude} />
                 </div>
             );
         }
         return (
+            <Loader message="Please accept location request." />
+        );
+    }
+
+    render() {
+        return (
             <div>
-                <h3>Loading...</h3>
+                {this.renderContent()}
             </div>
         );
     }
